@@ -22,6 +22,10 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-paginate": "^8.2.0",
+<<<<<<< HEAD
+=======
+    "react-paginated-list": "^1.1.0",
+>>>>>>> cd7ab2a12337ae14d37d0e64e5e0f4129e60deaa
     "react-scripts": "5.0.1",
     "styled-components": "^6.1.0",
     "ts-node": "^10.9.1",
