@@ -11,7 +11,7 @@ The **GitHub Repositories Search Application** is a user-friendly web app built 
 ## Key Features
 
 - **User Search:** Search for a GitHub user by their username.
-- **User Profile:** View detailed information about the user.
+- **User Profile:** View profile page.
 - **Repository List:** Browse a list of the user's repositories.
 - **Filter and Sort:** Refine and order repositories by name, programming language, and creation date.
 - **Light and Dark Mode:** Choose between light and dark themes for accessibility.
@@ -46,10 +46,10 @@ Visit GitHub Personal Access Tokens to create a token.
 The token should have the repo and user scopes.
 
 4. Create an Environment Variable:
-- Create a .env.local file in the project root.
+- Create a .env file in the project root.
 - Add your GitHub Personal Access Token to the file:
 ```bash
-REACT_APP_GITHUB_TOKEN=YOUR_ACCESS_TOKEN
+REACT_APP_GITHUB_ACCESS_TOKEN=YOUR_ACCESS_TOKEN
 ```
 5. Run the Application:
 ```bash
