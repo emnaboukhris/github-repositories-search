@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 import { Repo } from '../models/models';
 import ClearIcon from '@mui/icons-material/Clear';
+import { LANGUAGES, SORT_OTIONS } from '../utils/utils';
 
 export interface FiltersComponentProps {
   repositories: Repo[];
@@ -33,27 +34,6 @@ const FiltersComponent: React.FC<FiltersComponentProps> = (props) => {
     setIsFilterActive,
     isFilterActive,
   } = props;
-
-  // List of programming languages
-  const languages = [
-    { value: '', label: 'Language' },
-    { value: 'javascript', label: 'JavaScript' },
-    { value: 'java', label: 'Java' },
-    { value: 'css', label: 'CSS' },
-    { value: 'php', label: 'PHP' },
-    { value: 'scss', label: 'SCSS' },
-    { value: 'html', label: 'HTML' },
-    { value: 'typescript', label: 'TypeScript' },
-    { value: 'jupyter notebook', label: 'Jupyter Notebook' },
-    { value: 'dart', label: 'Dart' },
-    { value: 'ruby', label: 'Ruby' },
-  ];
-
-  // List of sorting options
-  const sortOptions = [
-    { value: 'date', label: 'Date creation' },
-    { value: 'name', label: 'Name' },
-  ];
 
   //Handle changes to the filter options
   const handleChangeFilter = (option: string, type: string) => {
@@ -79,8 +59,8 @@ const FiltersComponent: React.FC<FiltersComponentProps> = (props) => {
     // Filter by language
     if (selectedLanguage) {
       const language = selectedLanguage.toLowerCase();
-      filteredRepositories = filteredRepositories.filter((repo) =>
-        (repo.primaryLanguage?.name ?? '').toLowerCase().includes(language)
+      filteredRepositories = filteredRepositories.filter(
+        (repo) => (repo.primaryLanguage?.name ?? '').toLowerCase() === language
       );
     }
 
@@ -155,7 +135,7 @@ const FiltersComponent: React.FC<FiltersComponentProps> = (props) => {
             }
             displayEmpty
           >
-            {languages.map((language) => (
+            {LANGUAGES.map((language: any) => (
               <MenuItem key={language.value} value={language.value}>
                 {language.label}
               </MenuItem>
@@ -173,7 +153,7 @@ const FiltersComponent: React.FC<FiltersComponentProps> = (props) => {
               <em>Sort</em>
             </MenuItem>
 
-            {sortOptions.map((option) => (
+            {SORT_OTIONS.map((option: any) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
               </MenuItem>

@@ -1,7 +1,7 @@
+import { useEffect, useState } from 'react';
 import { Repo } from '../models/models';
 import RepoItem from './RepoItem';
 import { Divider } from '@mui/material';
-import { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 
 interface RepoListProps {
@@ -12,10 +12,14 @@ const RepoList: React.FC<RepoListProps> = ({ repositories }) => {
   const itemsPerPage = 10;
   const [currentPage, setCurrentPage] = useState<number>(0);
 
+  // handle current page on filter
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [repositories]);
+
   const handlePageChange = (selectedPage: number) => {
     setCurrentPage(selectedPage);
   };
-
   const offset = currentPage * itemsPerPage;
   const paginatedRepos = repositories.slice(offset, offset + itemsPerPage);
 
@@ -35,6 +39,7 @@ const RepoList: React.FC<RepoListProps> = ({ repositories }) => {
         pageRangeDisplayed={5}
         marginPagesDisplayed={2}
         onPageChange={({ selected }) => handlePageChange(selected)}
+        forcePage={currentPage}
         containerClassName="pagination"
         disabledClassName={'pagination__link--disabled'}
         activeClassName={'pagination__link--active'}

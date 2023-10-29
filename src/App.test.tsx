@@ -7,8 +7,7 @@ import {
   mockGetUserInfoResponse,
 } from './graphql/queries';
 
-
- // The mock response data
+// The mock response data
 test('renders user repositories', async () => {
   const mocks = [
     {

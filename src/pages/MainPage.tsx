@@ -27,6 +27,8 @@ import FiltersComponent from '../components/FiltersComponent';
 import NoData from '../components/NoData';
 import ProfileComponent from '../components/ProfileComponent';
 import LoaderComponent from '../components/LoaderComponent';
+import BookIcon from '@mui/icons-material/Book';
+import Person2Icon from '@mui/icons-material/Person2';
 
 const MainPage: React.FC = () => {
   // Constant for default search value
@@ -89,9 +91,6 @@ const MainPage: React.FC = () => {
     },
     palette: {
       mode: darkMode ? 'dark' : 'light',
-      // primary: {
-      //   main: '#a9a9a9', // Main color for secondary elements
-      // },
     },
   });
 
@@ -112,12 +111,20 @@ const MainPage: React.FC = () => {
           <img src={'githubWhite-logo.png'} alt="GitHub Logo" width="100" />
           <Box sx={{ flexGrow: 1 }} />
           <TextField
-            sx={{ width: '30vw', color: 'white' }}
+            sx={{
+              width: '35vw',
+              color: 'white',
+            }}
             placeholder="Find user..."
             size="small"
             id="fullWidth"
             value={searchUser}
             onChange={(event) => setSearchUser(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter') {
+                searchHandler();
+              }
+            }}
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
@@ -129,7 +136,7 @@ const MainPage: React.FC = () => {
               sx: { color: 'white' },
             }}
             InputLabelProps={{
-              sx: { color: 'white' }, // Set label text color to white
+              sx: { color: 'white' },
             }}
           />
 
@@ -165,10 +172,18 @@ const MainPage: React.FC = () => {
                 value={selectedTab}
                 onChange={handleTabChange}
                 aria-label="Tabs"
-                sx={{ width: '60vw' }}
+                sx={{ width: '62vw' }}
               >
-                <Tab label="Repositories" />
-                <Tab label=" Profile" />
+                <Tab
+                  label="Repositories"
+                  icon={<BookIcon />}
+                  iconPosition="start"
+                />
+                <Tab
+                  icon={<Person2Icon />}
+                  iconPosition="start"
+                  label=" Profile"
+                />
               </Tabs>
             </Box>
             <Divider />
