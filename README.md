@@ -77,7 +77,7 @@ You can access Storybook by opening a web browser and navigating to http://local
 
 
 ## Deployment
-You can visit the deployed application "url". 
+You can visit the deployed application "https://653de2762de5723560e6eeac--elegant-gecko-c64c69.netlify.app/". 
 Enjoy exploring the GitHub Repositories Search Application in action!
 
 
