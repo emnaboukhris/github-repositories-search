@@ -19,6 +19,10 @@ The **GitHub Repositories Search Application** is a user-friendly web app built 
 - **Loading and Error States:** Get smooth transitions and handling for seamless interactions.
 - **Clear Filters:** Easily reset filters and start a new search.
 
+## Node version:
+
+v16.13.2
+
 ## Technologies Used
 
 - **React:** The core library for building the user interface.
